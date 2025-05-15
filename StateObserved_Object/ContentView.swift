@@ -7,16 +7,8 @@
 
 import SwiftUI
 
-final class viewModel: ObservableObject{
-    @Published var count: Int = 0
-    
-    func IncrementCount(){
-        count += 1
-    }
-}
-
 struct ContentView: View {
-    @ObservedObject var vm = viewModel()
+    @StateObject var vm = viewModel()
     var body: some View {
         VStack(spacing: 20 ) {
             Text("Count = \(vm.count)")
