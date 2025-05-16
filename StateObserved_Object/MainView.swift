@@ -8,13 +8,12 @@
 import SwiftUI
 final class viewModel: ObservableObject{
     @Published var count: Int = 0
-    
     func IncrementCount(){
         count += 1
     }
     func resetCount(){
         count = 0
-    }
+ }
 }
 struct MainView: View {
     @StateObject var vm = viewModel()
@@ -41,7 +40,7 @@ struct CounterView: View {
             .cornerRadius(10)
     }
 }
-struct incrementButton: View{
+struct incrementButton: View {
     @ObservedObject var vm: viewModel
     var body: some View{
         Button("Increment"){
