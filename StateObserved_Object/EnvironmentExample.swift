@@ -8,7 +8,16 @@
 import SwiftUI
 
 class userData: ObservableObject {
-    @Published var name: String = "Welcome - Tech Exactly"
+    @Published var name: any View = textname()
+}
+
+struct textname: View {
+    var body: some View {
+        Text("Welcome - Tech Exactly")
+            .font(.headline)
+            .background(Color.yellow.opacity(0.4))
+            .padding()
+    }
 }
 
 struct EnvironmentExample: View {
@@ -50,9 +59,9 @@ struct fourthChildview: View {
 struct fifthChildview: View {
     @EnvironmentObject var userModel: userData
     var body: some View {
-        Text(userModel.name)
+        AnyView(userModel.name)
         Text("This is the last view")
-            .font(.largeTitle)
+            .font(.title2)
             .bold()
             .padding()
             .background(Color.gray.opacity(0.4))
